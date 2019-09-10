@@ -11,13 +11,17 @@ namespace QuizApp.Infrastructure.Data
         public DbSet<Quiz> Quizzes { get; set; }
         public DbSet<Question> Questions { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+
+        //   optionsBuilder.UseSqlite("Data Source=./quizapp.db");
+        // }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+: base(options)
         {
-            base.OnConfiguring(optionsBuilder);
-
-            optionsBuilder.UseSqlite("Data Source=./quizapp.db");
         }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
