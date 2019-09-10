@@ -49,21 +49,20 @@ namespace QuizApp.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Questions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        // tell SQL Server to use an "identity" (auto-increment) column for id
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    QuestionType = table.Column<string>(nullable: true),
-                    Prompt = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Questions", x => x.Id);
-                });
-
+            name: "Questions",
+            columns: table => new
+            {
+                Id = table.Column<int>(nullable: false)
+                    // ADD THIS LINE: tell SQL Server to use an "identity" (auto-increment) column for id
+                    .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn)
+                    .Annotation("Sqlite:Autoincrement", true),
+                QuestionType = table.Column<string>(nullable: true),
+                Prompt = table.Column<string>(nullable: true)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_Questions", x => x.Id);
+            });
             migrationBuilder.CreateTable(
                 name: "Quizzes",
                 columns: table => new
